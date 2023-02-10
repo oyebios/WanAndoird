@@ -1,0 +1,69 @@
+ext {
+
+    compileSdkVersion = 31
+    minSdkVersion = 28
+    targetSdkVersion = 32
+    versionCode = 1
+    versionName = "1.0"
+    isModule = true
+
+    config = [
+            APPID: "com.bsoft.mob.ecir"
+    ]
+    thirdPart = [
+            BaseRecyclerViewAdapterHelper: 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4',
+            glide                        : 'com.github.bumptech.glide:glide:4.11.0',
+            //lifecycle
+            lifecycle_runtime_ktx        : 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.0',
+            lifecycle_common_java8       : 'androidx.lifecycle:lifecycle-common-java8:2.2.0',
+            lifecycle_extensions         : 'androidx.lifecycle:lifecycle-extensions:2.2.0',
+            lifecycle_reactivestreams    : "androidx.lifecycle:lifecycle-reactivestreams:2.3.0-alpha04",
+            // viewModel
+            lifecycle_viewmodel_ktx      : 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0',
+            fragment_ktx                 : 'androidx.fragment:fragment-ktx:1.3.1',
+            // liveData
+            lifecycle_livedata_ktx       : 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0',
+            unpeek_livedata              : 'com.kunminx.archi:unpeek-livedata:4.4.1-beta1',
+            //navigation
+            navigation_fragment_ktx      : 'androidx.navigation:navigation-fragment-ktx:2.3.5',
+            navigation_ui_ktx            : 'androidx.navigation:navigation-ui-ktx:2.3.5',
+            //retrofit
+            retrofit                     : 'com.squareup.retrofit2:retrofit:2.9.0',
+            converter_gson               : 'com.squareup.retrofit2:converter-gson:2.9.0',
+            PersistentCookieJar          : 'com.github.franmontiel:PersistentCookieJar:v1.0.1',
+            //动态替换BaseUrl库 使用可参考 https://github.com/JessYanCoding/RetrofitUrlManager
+            retrofit_url_manager         : 'me.jessyan:retrofit-url-manager:1.4.0',
+            //dialog
+            material_dialogs_lifecycle   : "com.afollestad.material-dialogs:lifecycle:3.3.0",
+            material_dialogs_core        : "com.afollestad.material-dialogs:core:3.3.0",
+            material_dialogs_color       : "com.afollestad.material-dialogs:color:3.3.0",
+            material_dialogs_datetime    : "com.afollestad.material-dialogs:datetime:3.3.0",
+            material_dialogs_bottomsheets: "com.afollestad.material-dialogs:bottomsheets:3.3.0",
+            //util
+            utilcodex                    : 'com.blankj:utilcodex:1.26.0',
+            //微信开源项目，替代SP
+            mmkv                         : 'com.tencent:mmkv-static:1.2.6',
+            //管理界面状态库
+            loadsir                      : 'com.kingja.loadsir:loadsir:1.3.8',
+            //leakcanary
+            leakcanary                   : "com.squareup.leakcanary:leakcanary-android:2.7",
+
+            //rabbitmq
+            rabbitmq                     : 'com.rabbitmq:amqp-client:4.0.0',
+            //rxjava2 rxandroid
+            rxjava2_rxandroid            : 'io.reactivex.rxjava2:rxandroid:2.1.0',
+            rxjava2_rxjava               : 'io.reactivex.rxjava2:rxjava:2.2.3',
+            //glide
+            glide                        : 'com.github.bumptech.glide:glide:4.11.0',
+            glide_compiler               : 'com.github.bumptech.glide:compiler:4.11.0',
+            eventbus                     : "org.greenrobot:eventbus:3.1.1",
+            glide_compiler               : 'com.github.bumptech.glide:compiler:4.11.0',
+            banner                       : 'io.github.youth5201314:banner:2.2.2',
+            //BRVAH
+            BaseRecyclerViewAdapterHelper: 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4',
+            multidex                     : 'com.android.support:multidex:1.0.0',
+            mqttv3                       : "org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.1",
+            agentWeb                       : "com.github.Justson.AgentWeb:agentweb-core:v5.0.0-alpha.1-androidx"
+
+    ]
+}
