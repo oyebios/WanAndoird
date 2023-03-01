@@ -10,3 +10,5 @@ rootProject.name = "WanAndroid"
 include ':app'
 include ':mvvm'
 include ':network'
+include ':kotlin'
+include ':java'
