@@ -3,6 +3,7 @@ package com.lw.kotlin.keyword
 
 open class Person(val name: String)
 class Student(name: String) : Person(name) {
+    private val privateNum = 10
     open val age = 11
 }
 
@@ -24,4 +25,13 @@ fun main() {
     val str: StrList<out Person> = StrList(Student("s"))
     val str2: StrList<in Student> = StrList(Person("p"))
     str2.insert(Student("s2"))
+    str2.apply {
+
+    }
+    str2.also {
+
+    }
+    str2.run {
+
+    }
 }
