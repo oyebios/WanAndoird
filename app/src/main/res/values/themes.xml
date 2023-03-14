@@ -29,4 +29,13 @@
         <!-- Required -->
         <item name="postSplashScreenTheme">@style/Theme.WanAndroid</item>
     </style>
+
+    <style name="Theme.WanAndroid.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.WanAndroid.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.WanAndroid.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
