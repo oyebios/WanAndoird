@@ -17,6 +17,7 @@ class HomeActivity : BaseActiviy<ActivityMainBinding>() {
         val user = UserInfo()
         activityBinding?.user = user
         user.user.set("初始化")
+
     }
 
     override fun setLayoutId(): Int {

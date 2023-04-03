@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lw.b.startup">
+
+
+    <application>
+
+        <!--    在自己的application中重写该contentprovider，meta-info中添加自己的task，name为全类名，value是备注-->
+        <provider
+            android:authorities="${applicationId}.b-startup"
+            android:name=".cp.BStartUpContentProvider"
+            android:exported="false">
+            <!--            example-->
+            <!--            <meta-data-->
+            <!--                android:name="com.lw.wanandroid.performance.sdktask.TaskWorkManager"-->
+            <!--                android:value="workmanager"/>-->
+
+        </provider>
+    </application>
+</manifest>

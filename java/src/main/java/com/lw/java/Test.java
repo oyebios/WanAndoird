@@ -1,12 +1,22 @@
 package com.lw.java;
 
 public class Test {
+    private static final int MODE_SHIFT = 30;
+    private static final int MODE_MASK = 0x3 << MODE_SHIFT;
+    public static final int UNSPECIFIED = 0 << MODE_SHIFT;
+    public static final int EXACTLY = 1 << MODE_SHIFT;
+    public static final int AT_MOST = 2 << MODE_SHIFT;
+
 
     public static void main(String[] args) {
-        Color blue = new Blue();
-        Color red = new Red();
-        blue.draw();
-        red.draw();
+//        System.out.println(Integer.toBinaryString(MODE_SHIFT));
+        System.out.println(Integer.toBinaryString(MODE_MASK));
+//        System.out.println(Integer.toBinaryString(UNSPECIFIED));
+        System.out.println(Integer.toBinaryString(EXACTLY & MODE_MASK));
+        System.out.println(Integer.toBinaryString(EXACTLY));
+//        System.out.println(Integer.toBinaryString(AT_MOST));
+        System.out.println(Integer.toBinaryString(AT_MOST & MODE_MASK));
+        System.out.println(Integer.toBinaryString(AT_MOST));
     }
 }
 
