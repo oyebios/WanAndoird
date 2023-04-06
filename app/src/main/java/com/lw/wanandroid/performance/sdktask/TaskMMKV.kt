@@ -1,24 +1,17 @@
 package com.lw.wanandroid.performance.sdktask
 
-import com.lw.b.startup.task.InitTask
+import android.content.Context
+import com.lw.b.startup.task.BStartUpTask
+import com.lw.b.startup.task.ITask
 
-class TaskMMKV : InitTask {
-    override fun init(): Boolean {
+class TaskMMKV : BStartUpTask() {
+    override fun initYourSdkHere(appContext: Context): Boolean {
         println("BStartUp :  mmkv.init")
         return true
     }
 
-    override fun createTask() {
-
-    }
-
-    override fun dependencies(): List<Class<out InitTask>> {
+    override fun setYourTaskDependencies(): List<Class<out ITask>>? {
         return listOf(TaskBaseUtils::class.java)
     }
-
-    override fun setPrediction(countDown: Int) {
-
-    }
-
 
 }
