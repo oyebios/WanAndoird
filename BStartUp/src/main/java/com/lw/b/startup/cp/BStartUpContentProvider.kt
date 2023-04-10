@@ -4,12 +4,13 @@ import android.content.ContentProvider
 import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
+import com.lw.b.startup.BStartUp
 
 class BStartUpContentProvider : ContentProvider() {
     override fun onCreate(): Boolean {
 
         println("BStartUp :  BStartUpContentProvider.oncreate")
-//        BStartUp.getInstance().startUpWithXml(context)
+        BStartUp.getInstance().startUpWithXml(context)
         return true
     }
 
