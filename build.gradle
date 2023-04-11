@@ -13,7 +13,19 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
-
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+//task testMavenLocal{
+//    rootProject.buildscript {
+//        repositories {
+//            google()
+//            mavenCentral()
+//            println mavenLocal().url
+//        maven{
+//            url 'file:/E:/Maven/Repo/'
+//        }
+//        }
+//    }
+//}

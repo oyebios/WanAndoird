@@ -48,6 +48,7 @@ afterEvaluate {// components.release 只有在配置完成之后，才能拿到�
         // 配置maven 仓库
         repositories { handler ->
             maven { url 'E:/Maven/Repo' }
+            mavenLocal()
         }
         publications { publicationContainer ->
             maven(MavenPublication) {

@@ -2,6 +2,9 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
+        maven {
+            url 'file:/E:/Maven/Repo/'
+        }
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
     }
