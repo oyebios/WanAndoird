@@ -17,9 +17,20 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
+    //签名
+    signingConfigs {
+        releaseConfig {
+            storeFile file("lwkey.jks")
+            storePassword "283283"
+            keyAlias "lw"
+            keyPassword "283283"
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig signingConfigs.releaseConfig
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -50,4 +61,15 @@ dependencies {
     implementation project(path: ':BStartUp')
 //    implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
     implementation 'androidx.core:core-splashscreen:1.0.0-alpha01'
+}
+import java.security.MessageDigest
+
+task sha256ReleaseApk {
+    dependsOn 'assembleRelease'
+    doLast {
+        def apkFile = file("${project.buildDir}/outputs/apk/release/app-release.apk")
+        def sha256 = MessageDigest.getInstance("SHA-256")
+        sha256.update(apkFile.bytes)
+        println "SHA-256 value of release apk: " + sha256.digest().encodeHex()
+    }
 }
