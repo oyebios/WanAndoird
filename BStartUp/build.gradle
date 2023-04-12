@@ -67,6 +67,33 @@ afterEvaluate {// components.release 只有在配置完成之后，才能拿到�
                 groupId = "top.dlovet.wanandroid"
                 artifactId = "BStartUp"
                 version = "1.0"
+                pom {
+                    name = 'BStartUp'
+                    description = 'android startup lib'
+                    url = 'https://github.com/oyebios/WanAndoird'
+//                    properties = [
+//                            myProp: "value",
+//                            "prop.with.dots": "anotherValue"
+//                    ]
+                    licenses {
+                        license {
+                            name = 'The Apache License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'startree'
+                            name = 'startree'
+                            email = '1120647299@qq.com'
+                        }
+                    }
+                    scm {
+                        connection = 'scm:git:git://github.com/oyebios/WanAndoird.git'
+                        developerConnection = 'scm:git:ssh://github.com/oyebios/WanAndoird.git'
+                        url = 'https://github.com/oyebios/WanAndoird'
+                    }
+                }
             }
         }
     }
