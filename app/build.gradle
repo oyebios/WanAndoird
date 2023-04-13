@@ -58,8 +58,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     implementation project(path: ':mvvm')
-//    implementation project(path: ':BStartUp')
-    implementation 'com.lw.b:BStartUp:1.0'
+    implementation project(path: ':Library')
+    implementation project(path: ':IncrementalUpdate')
+    implementation 'top.dlovet.wanandroid:BStartUp:1.0'
 //    implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
     implementation 'androidx.core:core-splashscreen:1.0.0-alpha01'
 }

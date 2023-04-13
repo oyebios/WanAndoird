@@ -3,6 +3,22 @@
 
     <data>
 
+        <variable
+            name="oldapkpath"
+            type="String" />
+
+        <variable
+            name="newapkpath"
+            type="String" />
+
+        <variable
+            name="difffilepath"
+            type="String" />
+
+        <variable
+            name="apkhash"
+            type="String" />
+
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -10,12 +26,41 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="@={oldapkpath}" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="@={newapkpath}" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="@={difffilepath}" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
+            android:textSize="30sp"
+            android:text="@={apkhash}" />
+
+        <Button
+            android:id="@+id/id_btn_patch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:textSize="50sp"
-            android:text="第二页" />
+            android:text="合并，并计算hash" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>

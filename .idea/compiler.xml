@@ -4,6 +4,7 @@
     <bytecodeTargetLevel target="1.7">
       <module name="WanAndroid.app" target="11" />
       <module name="WanAndroid.BStartUp" target="11" />
+      <module name="WanAndroid.IncrementalUpdate" target="11" />
       <module name="WanAndroid.Library" target="11" />
       <module name="WanAndroid.mvvm" target="11" />
       <module name="WanAndroid.network" target="11" />
