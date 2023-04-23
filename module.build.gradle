@@ -1,13 +1,11 @@
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-}
-
+apply plugin: rootProject.ext.isModule ? 'com.android.application' : 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.lw.wanandroid"
+
 
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
@@ -15,9 +13,30 @@ android {
         versionName rootProject.ext.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // ARouter配置
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
     }
 
-
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            if (rootProject.ext.isModule) {
+                //独立运行
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                //合并到宿主
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                resources {
+                    //正式版本时，排除alone文件夹下所有调试文件
+                    exclude 'src/main/module/*'
+                }
+            }
+        }
+    }
     //签名
     signingConfigs {
         releaseConfig {
@@ -42,29 +61,18 @@ android {
         jvmTarget = '1.8'
     }
 
-    dataBinding{
+    dataBinding {
         enabled = true
     }
 }
 
 dependencies {
-
-    implementation project(path: ':module_home')
-//    implementation 'androidx.core:core-ktx:1.8.0'
-//    implementation 'androidx.appcompat:appcompat:1.3.1'
-//    implementation 'com.google.android.material:material:1.3.0'
-//    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-//    testImplementation 'junit:junit:4.+'
-//    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-//
     implementation project(path: ':mvvm')
     implementation project(path: ':Library')
-//    implementation project(path: ':IncrementalUpdate')
-//    implementation 'top.dlovet.wanandroid:BStartUp:1.0'
-//    implementation 'androidx.core:core-splashscreen:1.0.0-alpha01'
-//    implementation 'io.reactivex.rxjava2:rxjava:2.2.19'
-//    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation project(path: ':IncrementalUpdate')
+
+    // kapt无法像api那样穿透（从lib_common带过来），所以不能放在lib_common中，而是放在这里让每个组件都引入一份
+    kapt rootProject.ext.thirdPart.arouter_compiler
 }
 import java.security.MessageDigest
 

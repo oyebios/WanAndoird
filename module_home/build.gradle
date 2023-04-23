@@ -1,0 +1,13 @@
+apply from: "../module.build.gradle"
+
+android {
+    namespace 'com.lw.module_home'
+
+    defaultConfig {
+        if (rootProject.ext.isModule) {
+            applicationId "com.lw.module_home"
+        }
+    }
+    //统一资源前缀，规范资源引用，会让编译器自动提示你不规范的命名
+    resourcePrefix "home_"
+}

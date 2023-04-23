@@ -1,18 +1,29 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
     namespace 'com.lw.library'
-    compileSdk 33
+    compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        minSdk 24
-        targetSdk 33
+
+
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
+
+        // ARouter配置
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
     }
 
     buildTypes {
@@ -32,10 +43,24 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    api rootProject.ext.thirdPart.androidCoreKtx
+    api rootProject.ext.thirdPart.androidxAppCompat
+    api rootProject.ext.thirdPart.androidMaterial
+    api rootProject.ext.thirdPart.constraintlayout
+    testImplementation rootProject.ext.thirdPart.junit
+    androidTestImplementation rootProject.ext.thirdPart.junitExt
+    androidTestImplementation rootProject.ext.thirdPart.espresso
+
+    api project(path: ':mvvm')
+    api project(path: ':IncrementalUpdate')
+    api 'top.dlovet.wanandroid:BStartUp:1.0'
+
+    api rootProject.ext.thirdPart.splashscreen
+
+    api rootProject.ext.thirdPart.rxjava2_rxandroid
+    api rootProject.ext.thirdPart.rxjava2_rxjava
+
+
+    api rootProject.ext.thirdPart.arouter_api
+    kapt rootProject.ext.thirdPart.arouter_compiler
 }

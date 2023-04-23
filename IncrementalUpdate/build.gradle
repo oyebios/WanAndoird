@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace 'com.lw.incrementalupdate'
-    compileSdk 33
+    compileSdk 31
     ndkVersion "21.1.6352462"
     defaultConfig {
         minSdk 24
-        targetSdk 33
+        targetSdk 31
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
