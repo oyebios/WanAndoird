@@ -2,7 +2,8 @@ package com.lw.wanandroid.fragment
 
 import android.util.Log
 import android.view.View
-import com.lw.b.startup.BStartUp
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.lw.mvvm.baseui.BaseFragment
 import com.lw.mvvm.room.AppDatabase
 import com.lw.mvvm.room.User
@@ -20,7 +21,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 //            Navigation.findNavController(it).navigate(R.id.action_page2)
             user.user.set("第二次")
 
-            BStartUp.getInstance().startUpWithXml(activity)
+//            BStartUp.getInstance().startUpWithXml(activity)
+            val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+            val myRef: DatabaseReference = database.getReference("message/info")
+
+            myRef.setValue("Hello, World!")
+
         }
         fragmentBinding?.user = user
         fragmentBinding?.userInput = user

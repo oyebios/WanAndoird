@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "822473205273",
+    "project_id": "wanandroid-547f2",
+    "storage_bucket": "wanandroid-547f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:822473205273:android:fb6616e626c827f180ac88",
+        "android_client_info": {
+          "package_name": "com.lw.wanandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "822473205273-fiqjv97qrjtr33mpjo7k0val56uf0hrs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8gjmqxtcebYSUlcoYhYxHrsCEuSl6FLY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "822473205273-fiqjv97qrjtr33mpjo7k0val56uf0hrs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
