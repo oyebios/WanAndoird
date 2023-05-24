@@ -12,6 +12,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/BAPM" />
+            <option value="$PROJECT_DIR$/BLog" />
             <option value="$PROJECT_DIR$/BStartUp" />
             <option value="$PROJECT_DIR$/IncrementalUpdate" />
             <option value="$PROJECT_DIR$/Library" />

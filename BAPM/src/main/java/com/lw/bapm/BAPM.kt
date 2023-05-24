@@ -11,9 +11,4 @@ class BAPM {
         fun getInstance() = Inner.BAMP
     }
 
-
-    /**
-     * 电池
-     */
-
 }
