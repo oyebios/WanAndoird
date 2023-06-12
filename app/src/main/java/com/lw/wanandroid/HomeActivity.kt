@@ -18,6 +18,7 @@ class HomeActivity : BaseActiviy<ActivityMainBinding>() {
         activityBinding?.user = user
         user.user.set("初始化")
 
+//        FrameTrace().addHandlerLogger()
     }
 
     override fun setLayoutId(): Int {

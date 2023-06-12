@@ -58,6 +58,7 @@ dependencies {
     implementation project(path: ':module_home')
     implementation project(path: ':mvvm')
     implementation project(path: ':Library')
+    implementation project(path: ':BAPM')
     implementation platform('com.google.firebase:firebase-bom:32.0.0')
     implementation 'com.google.firebase:firebase-database'
 //    implementation 'com.google.firebase:firebase-analytics-ktx'
