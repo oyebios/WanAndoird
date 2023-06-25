@@ -6,10 +6,19 @@ class KotlinLearn {
 }
 
 fun main() {
-    val a = null
-    a?.let {
-        println("not null")
-    } ?: println("1 null")
+//    val a = null
+//    a?.let {
+//        println("not null")
+//    } ?: println("1 null")
+
+    val list = mutableListOf<String>()
+    list.add("a")
+    list.add("a")
+    list.add("d")
+    list.add("a")
+    list.add("c")
+    list.remove("a")
+    println(list)
 }
 
 fun test() {

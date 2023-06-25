@@ -1,73 +1,51 @@
 package com.lw.bapm
 
-import android.app.Activity
 import android.app.Application
-import android.app.Application.ActivityLifecycleCallbacks
-import android.app.Instrumentation
 import android.content.Context
-import android.os.Bundle
+import com.lw.bapm.base.Monitor
+import com.lw.bapm.lifecycle.ProcessUILifecycleOwner
 import com.lw.bapm.listener.TimeMonitorListener
 import com.lw.bapm.timemonitor.TimeMonitor
-import java.lang.reflect.Method
 
 object BAPM {
 
     val timeMonitor = TimeMonitor()
-    var activityStartedCount = 0
+
+
+    val monitors: HashSet<Monitor> = HashSet()
+
+    var app: Application? = null
 
     /**
      * 初始化 在BAPMContentProvider中获取到appcontext
      *
      */
-    fun create(context: Context?) {
+    internal fun create(context: Context?) {
         if (context is Application) {
+            app = context
             timeMonitor.init(context, TimeMonitorListener())
-            context.registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {
-                override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
-                    activityStartedCount += 1
-                    timeMonitor.startUpFlow.step("the $activityStartedCount activity onActivityCreated")
-                }
-
-                override fun onActivityStarted(activity: Activity) {
-                }
-
-                override fun onActivityResumed(activity: Activity) {
-
-                    timeMonitor.startUpFlow.step("the $activityStartedCount activity resumed")
-                }
-
-                override fun onActivityPaused(activity: Activity) {
-                }
-
-                override fun onActivityStopped(activity: Activity) {
-                }
-
-                override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {
-                }
-
-                override fun onActivityDestroyed(activity: Activity) {
-                }
-            })
+            monitors.add(timeMonitor)
+            ProcessUILifecycleOwner.init(context)
         }
     }
 
-    private fun hookActivityInstrumentation(): Instrumentation? {
-        try {
-            val activityThreadClass = Class.forName("android.app.ActivityThread")
-            val currentActivityThreadMethod: Method =
-                activityThreadClass.getDeclaredMethod("currentActivityThread")
-            currentActivityThreadMethod.setAccessible(true)
-            val currentActivityThread: Any = currentActivityThreadMethod.invoke(null)
-            val getInstrumentationMethod: Method =
-                activityThreadClass.getDeclaredMethod("getInstrumentation")
-            getInstrumentationMethod.setAccessible(true)
-            val instrumentation: Any = getInstrumentationMethod.invoke(currentActivityThread)
-            return (instrumentation as Instrumentation)
-            // Use the instrumentation object as needed
-        } catch (e: Exception) {
-            // Handle any exceptions
-            return null
+    fun addMonitor(monitor: Monitor): BAPM {
+        if (app == null) {
+            throw NullPointerException("init BAPM before add monitor!!")
         }
+        monitors.add(monitor)
+        return this
     }
 
+
+    inline fun <reified T : Monitor> getMonitor(clazz: Class<T>): T? {
+        val clazzName = clazz.name
+        for (monitor in monitors) {
+            if (monitor.javaClass.name.equals(clazzName)) {
+                if (monitor is T)
+                    return monitor
+            }
+        }
+        return null
+    }
 }

@@ -19,5 +19,7 @@ class TimeMonitor : Monitor() {
         startUpFlow.start("application context created")
     }
 
-
+    override fun start() {
+        super.start()
+    }
 }

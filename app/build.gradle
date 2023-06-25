@@ -59,8 +59,10 @@ dependencies {
     implementation project(path: ':mvvm')
     implementation project(path: ':Library')
     implementation project(path: ':BAPM')
+    implementation project(path: ':bluetooth')
     implementation platform('com.google.firebase:firebase-bom:32.0.0')
     implementation 'com.google.firebase:firebase-database'
+
 //    implementation 'com.google.firebase:firebase-analytics-ktx'
 }
 import java.security.MessageDigest
