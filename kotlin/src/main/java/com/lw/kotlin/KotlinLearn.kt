@@ -10,15 +10,14 @@ fun main() {
 //    a?.let {
 //        println("not null")
 //    } ?: println("1 null")
+    val byteArray = byteArrayOf(-86, 1, -63, 113, 14, 28, 1, -94)
+    val toHexString = String.format("%02X", byteArray[2])
+    val stringBuilderTemp = StringBuilder()
 
-    val list = mutableListOf<String>()
-    list.add("a")
-    list.add("a")
-    list.add("d")
-    list.add("a")
-    list.add("c")
-    list.remove("a")
-    println(list)
+    stringBuilderTemp.append(Integer.toHexString(byteArray[4].toInt()))
+    stringBuilderTemp.append(Integer.toHexString(byteArray[5].toInt()))
+    println(toHexString)
+    println(stringBuilderTemp.toString())
 }
 
 fun test() {

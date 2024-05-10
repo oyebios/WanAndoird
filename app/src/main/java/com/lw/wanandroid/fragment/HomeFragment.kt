@@ -14,7 +14,6 @@ import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lw.mvvm.baseui.BaseFragment
 import com.lw.wanandroid.R
-import com.lw.wanandroid.ScrollingActivity
 import com.lw.wanandroid.data.UserInfo
 import com.lw.wanandroid.databinding.FragmentHomeBinding
 
@@ -32,8 +31,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 //            val myRef: DatabaseReference = database.getReference("message/info")
 //
 //            myRef.setValue("Hello, World!")
-//            bluetoothFun()
-            activity!!.startActivity(Intent(activity, ScrollingActivity::class.java))
+            bluetoothFun()
+//            activity!!.startActivity(Intent(activity, ScrollingActivity::class.java))
 
         }
         fragmentBinding?.user = user
@@ -75,12 +74,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         activity?.registerReceiver(receiver, filter)
         if (ActivityCompat.checkSelfPermission(
                 context!!,
-                Manifest.permission.BLUETOOTH_SCAN
+                Manifest.permission.BLUETOOTH_ADMIN
             ) != PackageManager.PERMISSION_GRANTED
         ) {
             println("permissiont denined")
             requestPermissions(
-                arrayOf(Manifest.permission.BLUETOOTH_SCAN),
+                arrayOf(Manifest.permission.BLUETOOTH_ADMIN),
                 1001
             );
             return
